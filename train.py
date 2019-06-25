@@ -46,25 +46,31 @@ if __name__ == "__main__":
       print("flag888888888888888 ?")
       tf_loss, tf_global_step, _ = session.run([model.loss, model.global_step, model.train_op])
       accumulated_loss += tf_loss
-
+      print("flag9999999999")
       if tf_global_step % report_frequency == 0:
+        print("flag101010101010")
         total_time = time.time() - initial_time
         steps_per_second = tf_global_step / total_time
-
+        print("flag11 11 11 11 ")
         average_loss = accumulated_loss / report_frequency
+        print("flag 11 11 11 11 11 11")
         print("[{}] loss={:.2f}, steps/s={:.2f}".format(tf_global_step, average_loss, steps_per_second))
         writer.add_summary(util.make_summary({"loss": average_loss}), tf_global_step)
         accumulated_loss = 0.0
 
       if tf_global_step % eval_frequency == 0:
+        print("flag 12 12 12 12 ")
         saver.save(session, os.path.join(log_dir, "model"), global_step=tf_global_step)
+        print("flag 13 13 13 13")
         eval_summary, eval_f1 = model.evaluate(session)
 
         if eval_f1 > max_f1:
+          print("flag 14 14 14 14")
           max_f1 = eval_f1
           util.copy_checkpoint(os.path.join(log_dir, "model-{}".format(tf_global_step)), os.path.join(log_dir, "model.max.ckpt"))
-
+        
+        print("flag 15 15 15")
         writer.add_summary(eval_summary, tf_global_step)
         writer.add_summary(util.make_summary({"max_eval_f1": max_f1}), tf_global_step)
-
+        print("flag 16 16 16 16")
         print("[{}] evaL_f1={:.2f}, max_f1={:.2f}".format(tf_global_step, eval_f1, max_f1))
