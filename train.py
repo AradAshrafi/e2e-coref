@@ -16,26 +16,34 @@ if __name__ == "__main__":
   report_frequency = config["report_frequency"]
   eval_frequency = config["eval_frequency"]
 
+  print("flag11111111111111111111111111")
   model = cm.CorefModel(config)
   saver = tf.train.Saver()
-
+  
+  print("flag22222222222222222")
   log_dir = config["log_dir"]
   writer = tf.summary.FileWriter(log_dir, flush_secs=20)
 
   max_f1 = 0
-
+  print("flag33333333333333333333")
+  
   with tf.Session() as session:
+    print("flag44444444444444")
     session.run(tf.global_variables_initializer())
     model.start_enqueue_thread(session)
+    print("flag5555555555555")
     accumulated_loss = 0.0
 
     ckpt = tf.train.get_checkpoint_state(log_dir)
+    print("flag6666666666666666")
     if ckpt and ckpt.model_checkpoint_path:
       print("Restoring from: {}".format(ckpt.model_checkpoint_path))
       saver.restore(session, ckpt.model_checkpoint_path)
-
+    
+    print("flag77777777777")
     initial_time = time.time()
     while True:
+      print("flag888888888888888 ?")
       tf_loss, tf_global_step, _ = session.run([model.loss, model.global_step, model.train_op])
       accumulated_loss += tf_loss
 
