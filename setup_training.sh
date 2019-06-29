@@ -22,7 +22,7 @@ bash  /content/e2e-coref/conll-2012/v3/scripts/skeleton2conll.sh -D $ontonotes_p
 
 function compile_partition() {
     rm -f $2.$5.$3$4
-    cat conll-2012/$3/data/$1/data/$5/annotations/*/*/*/*.$3$4 >> $2.$5.$3$4
+    cat /content/e2e-coref/conll-2012/$3/data/$1/data/$5/annotations/*/*/*/*.$3$4 >> $2.$5.$3$4
 }
 
 function compile_language() {
