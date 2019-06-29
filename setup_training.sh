@@ -18,7 +18,7 @@ dlx http://conll.cemantix.org/download reference-coreference-scorers.v8.01.tar.g
 mv reference-coreference-scorers conll-2012/scorer
 
 ontonotes_path='/content/drive/My Drive/ontonotes-release-5.0'
-bash conll-2012/v3/scripts/skeleton2conll.sh -D $ontonotes_path/data/files/data conll-2012
+bash  /content/e2e-coref/conll-2012/v3/scripts/skeleton2conll.sh -D $ontonotes_path/data/files/data conll-2012
 
 function compile_partition() {
     rm -f $2.$5.$3$4
