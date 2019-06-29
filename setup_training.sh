@@ -18,11 +18,13 @@ dlx http://conll.cemantix.org/download reference-coreference-scorers.v8.01.tar.g
 mv reference-coreference-scorers conll-2012/scorer
 
 ontonotes_path='/content/drive/My Drive/ontonotes-release-5.0'
-bash  /content/e2e-coref/conll-2012/v3/scripts/skeleton2conll.sh -D $ontonotes_path/data/files/data conll-2012
+print("falg111111111111111111")
+bash conll-2012/v3/scripts/skeleton2conll.sh -D $ontonotes_path/data/files/data conll-2012
+print("flag22222222222222222222")
 
 function compile_partition() {
     rm -f $2.$5.$3$4
-    cat /content/e2e-coref/conll-2012/$3/data/$1/data/$5/annotations/*/*/*/*.$3$4 >> $2.$5.$3$4
+    cat conll-2012/$3/data/$1/data/$5/annotations/*/*/*/*.$3$4 >> $2.$5.$3$4
 }
 
 function compile_language() {
