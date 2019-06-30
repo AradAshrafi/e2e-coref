@@ -14,6 +14,11 @@ dlx $conll_url/test conll-2012-test-official.v9.tar.gz
 
 dlx $conll_url conll-2012-scripts.v3.tar.gz
 
+rm -rf './conll-2012/v4/data/train/data/arabic'
+rm -rf './conll-2012/v4/data/train/data/chinese'
+rm -rf './conll-2012/v4/data/development/data/arabic'
+rm -rf './conll-2012/v4/data/development/data/chinese'
+
 dlx http://conll.cemantix.org/download reference-coreference-scorers.v8.01.tar.gz
 mv reference-coreference-scorers conll-2012/scorer
 
