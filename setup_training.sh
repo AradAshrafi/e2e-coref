@@ -19,7 +19,7 @@ mv reference-coreference-scorers conll-2012/scorer
 
 ontonotes_path='/content/drive/My Drive/ontonotes-release-5.0'
 echo "flag1111111111111"
-bash /content/e2e-coref/conll-2012/v3/scripts/skeleton2conll.sh -D $ontonotes_path/data/files/data /content/e2e-coref/conll-2012
+bash './conll-2012/v3/scripts/skeleton2conll.sh' -D '$ontonotes_path/data/files/data' './conll-2012/'
 echo $?
 echo "flag22222222222222"
 
