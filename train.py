@@ -47,14 +47,23 @@ if __name__ == "__main__":
         accumulated_loss = 0.0
 
       if tf_global_step % eval_frequency == 0:
+        print("1")
         saver.save(session, os.path.join(log_dir, "model"), global_step=tf_global_step)
+        print("2")
         eval_summary, eval_f1 = model.evaluate(session)
-
+        print("3")
+        
         if eval_f1 > max_f1:
+          print("?")
           max_f1 = eval_f1
+          print("??")
           util.copy_checkpoint(os.path.join(log_dir, "model-{}".format(tf_global_step)), os.path.join(log_dir, "model.max.ckpt"))
+          print("???")
         
         writer.add_summary(eval_summary, tf_global_step)
+        print("4")
         writer.add_summary(util.make_summary({"max_eval_f1": max_f1}), tf_global_step)
-        print("flag 16 16 16 16")
+        print("5")
         print("[{}] evaL_f1={:.2f}, max_f1={:.2f}".format(tf_global_step, eval_f1, max_f1))
+        print("6")
+        
